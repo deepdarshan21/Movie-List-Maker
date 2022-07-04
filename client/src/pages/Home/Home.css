@@ -1,0 +1,16 @@
+.head {
+    padding-top: 100px;
+    padding-bottom: 80px;
+}
+
+.head > * {
+    width: 600px;
+    padding-bottom: 20px;
+}
+
+.main {
+    background-color: #f4f8f9;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-height: calc(100vh - 725px);
+}
