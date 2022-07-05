@@ -30,6 +30,7 @@ const Signup = (props) => {
     const handleChangeInput = (e) =>  {
         setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
     }
+    
     return (
         <Dialog open={open} onClose={handleClose} fullWidth maxWidth="xs">
             <DialogTitle sx={{ textAlign: "center" }}>Signup</DialogTitle>
