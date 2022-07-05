@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
 
 const ROUTES = [
     {
@@ -17,16 +19,16 @@ const ROUTES = [
         path: "/login",
         key: "LOGIN",
         exact: true,
-        component: Home,
-        props: { login: true },
+        component: Login,
+        props: {},
         routes: [],
     },
     {
         path: "/signup",
         key: "SIGNUP",
         exact: true,
-        component: Home,
-        props: { signup: true },
+        component: Signup,
+        props: {},
         routes: [],
     },
 ];

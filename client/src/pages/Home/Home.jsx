@@ -43,9 +43,6 @@ const Home = (props) => {
                 </div>
             </div>
             <Footer />
-
-            <Login open={props.login} />
-            <Signup open={props.signup} />
         </>
     );
 };

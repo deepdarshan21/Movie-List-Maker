@@ -1,6 +1,7 @@
 import "./Navbar.css";
 import { Typography, Button, Avatar } from "@mui/material";
 import Search from "../Search/Search";
+import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
     const { isAlreadyLogin, userName } = props;
@@ -56,12 +57,16 @@ const Navbar = (props) => {
                     </>
                 ) : (
                     <>
-                        <Button variant="text" sx={{ marginLeft: "20px" }}>
-                            Login
-                        </Button>
-                        <Button variant="contained" sx={{ marginLeft: "20px" }}>
-                            Sign Up
-                        </Button>
+                        <Link to="/login">
+                            <Button variant="text" sx={{ marginLeft: "20px" }}>
+                                Login
+                            </Button>
+                        </Link>
+                        <Link to="/signup">
+                            <Button variant="contained" sx={{ marginLeft: "20px" }}>
+                                Sign Up
+                            </Button>
+                        </Link>
                     </>
                 )}
             </span>

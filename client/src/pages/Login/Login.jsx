@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 const Login = (props) => {
     const navigate = useNavigate();
 
-    const [open, setOpen] = useState(props.open);
+    const [open, setOpen] = useState(true);
 
     const handleClose = () => {
         setOpen(false);
