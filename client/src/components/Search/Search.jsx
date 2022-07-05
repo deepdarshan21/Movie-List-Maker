@@ -32,7 +32,7 @@ const Search = (props) => {
                     cancelToken: cancelToken.current.token,
                 }
             );
-            console.log(value, data);
+            // console.log(value, data);
             if (data.Response === "False") {
                 if (data.Error === "Too many results.") {
                     setSearchResults(["Enter some more letter for search..."]);
