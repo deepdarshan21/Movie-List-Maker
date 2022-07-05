@@ -9,6 +9,7 @@ import {
     DialogActions,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Signup = (props) => {
     const navigate = useNavigate();
@@ -20,6 +21,26 @@ const Signup = (props) => {
         navigate("/");
     };
 
+    const handleSignup = () => {
+        if (userDetails.password === userDetails.confirmPassword) {
+            axios
+                .post("http://localhost:4509/auth/signup", {
+                    email: userDetails.email,
+                    name: userDetails.name,
+                    password: userDetails.password,
+                })
+                .then((res) => {
+                    alert("Successfully signed up. Now login to your account")
+                    handleClose();
+                })
+                .catch((err) => {
+                    alert("Internal error occoured! Please try again after some time");
+                });
+        } else {
+            alert("Password and confirm password not matchs");
+        }
+    };
+
     const [userDetails, setUserDetails] = useState({
         email: "",
         name: "",
@@ -27,10 +48,10 @@ const Signup = (props) => {
         confirmPassword: "",
     });
 
-    const handleChangeInput = (e) =>  {
+    const handleChangeInput = (e) => {
         setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
-    }
-    
+    };
+
     return (
         <Dialog open={open} onClose={handleClose} fullWidth maxWidth="xs">
             <DialogTitle sx={{ textAlign: "center" }}>Signup</DialogTitle>
@@ -86,7 +107,7 @@ const Signup = (props) => {
                 />
             </DialogContent>
             <DialogActions>
-                <Button variant="contained" onClick={handleClose}>
+                <Button variant="contained" onClick={handleSignup}>
                     Signup
                 </Button>
             </DialogActions>
