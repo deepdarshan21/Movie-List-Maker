@@ -4,7 +4,7 @@ import Search from "../Search/Search";
 import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
-    const { isAlreadyLogin, userName } = props;
+    const { isAlreadyLogin } = props;
 
     function stringToColor(string) {
         let hash = 0;
