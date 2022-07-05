@@ -1,0 +1,36 @@
+.search-box {
+    position: relative;
+    width: 300px;
+    /* margin-right: 10px; */
+}
+
+.search-box > * {
+    width: 100%;
+}
+
+/* width */
+.search-box-result-header::-webkit-scrollbar {
+  width: 0px;
+}
+
+.search-box-result-header {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    border: 1px solid black;
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+    background-color: whitesmoke;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.search-box-result-header > * {
+    width: 100%;
+    text-align: center;
+}
+
+.search-box-result-header > *:hover {
+    background-color: #9aa0a6;
+    cursor: pointer;
+}

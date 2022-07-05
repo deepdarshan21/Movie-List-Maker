@@ -1,6 +1,6 @@
 import "./Navbar.css";
-import { Typography, TextField, InputAdornment, Button, Avatar } from "@mui/material";
-import { AiOutlineSearch } from "react-icons/ai";
+import { Typography, Button, Avatar } from "@mui/material";
+import Search from "../Search/Search";
 
 const Navbar = (props) => {
     const { isAlreadyLogin, userName } = props;
@@ -44,18 +44,7 @@ const Navbar = (props) => {
                 Movie List Maker
             </Typography>
             <span className="nav-links">
-                <TextField
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <AiOutlineSearch />
-                            </InputAdornment>
-                        ),
-                    }}
-                    variant="standard"
-                    sx={{ marginLeft: "20px" }}
-                    placeholder="Search a movie..."
-                />
+                <Search />
                 {isAlreadyLogin ? (
                     <>
                         <Avatar
