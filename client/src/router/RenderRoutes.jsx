@@ -13,6 +13,14 @@ const ROUTES = [
         props: {},
         routes: [],
     },
+    {
+        path: "/login",
+        key: "HOME",
+        exact: true,
+        component: Home,
+        props: { login: true, },
+        routes: [],
+    },
 ];
 
 export const RenderRoutes = ({ routes }) => {
