@@ -9,6 +9,7 @@ import {
     DialogActions,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = (props) => {
     const navigate = useNavigate();
@@ -18,6 +19,21 @@ const Login = (props) => {
     const handleClose = () => {
         setOpen(false);
         navigate("/");
+    };
+
+    const handleLogin = () => {
+        axios
+            .post("http://localhost:4509/auth/login", {
+                email: userDetails.email,
+                password: userDetails.password,
+            })
+            .then((res) => {
+                localStorage.setItem("userInfoToken ", res.data.token);
+                handleClose();
+            })
+            .catch((err) => {
+                alert("Invalid User-email or Password");
+            });
     };
 
     const [userDetails, setUserDetails] = useState({
@@ -60,7 +76,7 @@ const Login = (props) => {
                 />
             </DialogContent>
             <DialogActions>
-                <Button variant="contained" onClick={handleClose}>
+                <Button variant="contained" onClick={handleLogin}>
                     Login
                 </Button>
             </DialogActions>
