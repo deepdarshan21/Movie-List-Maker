@@ -67,12 +67,6 @@ const Search = (props) => {
                             return <SearchResult key={index} movieName={result.Title} />;
                         } else return <SearchResult key={index} movieName={result} />;
                     })}
-                    {/* <SearchResult movieName="deep" />
-                    <SearchResult movieName="deep" />
-                    <SearchResult movieName="deep" />
-                    <SearchResult movieName="deep" />
-                    <SearchResult movieName="deep" />
-                    <SearchResult movieName="deep" /> */}
                 </div>
             ) : null}
         </div>
