@@ -2,9 +2,24 @@ import "./Navbar.css";
 import { Typography, Button, Avatar } from "@mui/material";
 import Search from "../Search/Search";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Navbar = (props) => {
     const { isAlreadyLogin } = props;
+    const [userName, setUserName] = useState("");
+
+    useEffect(() => {
+        const getUserName = async () => {
+            const { data } = axios.post("http://localhost:4509/user/username", {
+                jwtToken: localStorage.getItem("userInfoToken"),
+            });
+            setUserName(data.userName);
+        };
+        if (isAlreadyLogin) {
+            getUserName();
+        }
+    }, []);
 
     function stringToColor(string) {
         let hash = 0;
@@ -51,7 +66,7 @@ const Navbar = (props) => {
                         <Avatar
                             // alt="Remy Sharp"
                             // src="/static/images/avatar/1.jpg"
-                            {...stringAvatar("Prashant Pathak")}
+                            {...stringAvatar(userName)}
                             sx={{ marginLeft: "20px" }}
                         />
                     </>

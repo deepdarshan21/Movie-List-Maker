@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 const Home = (props) => {
     return (
         <>
-            <Navbar />
+            <Navbar isAlreadyLogin={props.isLogin} />
             <div className="head">
                 <Typography component="h1" sx={{ fontSize: "48px", fontWeight: "700" }}>
                     Movie List Maker

@@ -12,7 +12,15 @@ const ROUTES = [
         key: "HOME",
         exact: false,
         component: Home,
-        props: {},
+        props: { isLogin: false },
+        routes: [],
+    },
+    {
+        path: "/user",
+        key: "HOME",
+        exact: true,
+        component: Home,
+        props: { isLogin: true },
         routes: [],
     },
     {

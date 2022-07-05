@@ -29,9 +29,11 @@ const Login = (props) => {
             })
             .then((res) => {
                 localStorage.setItem("userInfoToken ", res.data.token);
-                handleClose();
+                setOpen(false);
+                navigate("/user")
             })
             .catch((err) => {
+                console.log(err);
                 alert("Invalid User-email or Password");
             });
     };
