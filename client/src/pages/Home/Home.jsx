@@ -3,7 +3,8 @@ import { Button, Typography } from "@mui/material";
 import { BsPencilFill } from "react-icons/bs";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import Login from "../Login/Login";
+import Login from "../Login";
+import Signup from "../Signup";
 
 const Home = (props) => {
     return (
@@ -44,6 +45,7 @@ const Home = (props) => {
             <Footer />
 
             <Login open={props.login} />
+            <Signup open={props.signup} />
         </>
     );
 };

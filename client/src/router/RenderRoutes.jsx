@@ -15,10 +15,18 @@ const ROUTES = [
     },
     {
         path: "/login",
-        key: "HOME",
+        key: "LOGIN",
         exact: true,
         component: Home,
-        props: { login: true, },
+        props: { login: true },
+        routes: [],
+    },
+    {
+        path: "/signup",
+        key: "SIGNUP",
+        exact: true,
+        component: Home,
+        props: { signup: true },
         routes: [],
     },
 ];
