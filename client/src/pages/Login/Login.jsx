@@ -23,7 +23,7 @@ const Login = (props) => {
 
     const handleLogin = () => {
         axios
-            .post("http://localhost:4509/auth/login", {
+            .post("/auth/login", {
                 email: userDetails.email,
                 password: userDetails.password,
             })
