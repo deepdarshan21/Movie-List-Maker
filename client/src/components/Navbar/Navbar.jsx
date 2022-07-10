@@ -11,15 +11,15 @@ const Navbar = (props) => {
 
     useEffect(() => {
         const getUserName = async () => {
-            const { data } = axios.post("http://localhost:4509/user/username", {
+            const res = await axios.post("http://localhost:4509/user/username", {
                 jwtToken: localStorage.getItem("userInfoToken"),
             });
-            setUserName(data.userName);
+            setUserName(res.data.name);
         };
         if (isAlreadyLogin) {
             getUserName();
         }
-    }, []);
+    }, [isAlreadyLogin]);
 
     function stringToColor(string) {
         let hash = 0;

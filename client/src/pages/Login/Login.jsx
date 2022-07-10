@@ -28,9 +28,9 @@ const Login = (props) => {
                 password: userDetails.password,
             })
             .then((res) => {
-                localStorage.setItem("userInfoToken ", res.data.token);
+                localStorage.setItem("userInfoToken", res.data.token);
                 setOpen(false);
-                navigate("/user")
+                navigate("/user");
             })
             .catch((err) => {
                 console.log(err);
@@ -55,7 +55,7 @@ const Login = (props) => {
                 <TextField
                     autoFocus
                     margin="dense"
-                    id="name"
+                    id="email"
                     label="Email Address"
                     type="email"
                     name="email"
@@ -67,7 +67,7 @@ const Login = (props) => {
                 <TextField
                     autoFocus
                     margin="dense"
-                    id="name"
+                    id="password"
                     label="Password"
                     type="password"
                     name="password"
