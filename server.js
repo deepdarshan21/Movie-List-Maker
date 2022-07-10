@@ -33,8 +33,10 @@ app.get("/", (req, res) => {
 });
 
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/user");
 
 app.use("/auth", authRoute);
+app.use("/user", userRoute);
 
 const PORT = process.env.PORT;
 
