@@ -14,6 +14,8 @@
 
 #apikey
 */.env
+/*.env
+*.env
 
 # misc
 .DS_Store
