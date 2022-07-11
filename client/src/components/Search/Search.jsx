@@ -48,6 +48,7 @@ const Search = (props) => {
     return (
         <div className="search-box">
             <TextField
+                autoComplete="off"
                 InputProps={{
                     startAdornment: (
                         <InputAdornment position="start">
