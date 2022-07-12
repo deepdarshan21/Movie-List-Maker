@@ -1,13 +1,11 @@
-import "./Search.css";
 import { useEffect, useRef, useState } from "react";
-import { TextField, InputAdornment } from "@mui/material";
+import { TextField, InputAdornment, Autocomplete, Paper, Popper } from "@mui/material";
 import { AiOutlineSearch } from "react-icons/ai";
 import axios from "axios";
-import SearchResult from "./SearchResult";
 
 const Search = (props) => {
     const [value, setValue] = useState("");
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResults, setSearchResults] = useState(["Enter some more letter for search..."]);
 
     const onChangeHandler = (e) => {
         setValue(e.target.value);
@@ -46,31 +44,64 @@ const Search = (props) => {
         fetch();
     }, [value]);
     return (
-        <div className="search-box">
-            <TextField
-                autoComplete="off"
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <AiOutlineSearch />
-                        </InputAdornment>
-                    ),
+        <>
+            {/* {console.log(searchResults)} */}
+            <Autocomplete
+                freeSolo
+                // loading
+                // loadingText={(options)=> {
+                //     console.log("Loading Text", options);
+                //     if (typeof options[0] === "string") {
+                //         return options[0];
+                //     }
+                //     return "Loading..."
+                // }}
+                disableClearable
+                options={searchResults}
+                getOptionLabel={(option) => {
+                    // console.log("Typeof, ", typeof option);
+                    // console.log(option);
+                    if (typeof option === "string") {
+                        return option;
+                    }
+                    return option.Title;
                 }}
-                variant="standard"
-                placeholder="Search a movie..."
-                value={value}
-                onChange={onChangeHandler}
+                PaperComponent={(props) => (
+                    <Paper
+                        {...props}
+                        sx={{ width: "100%", padding: "0", "&::-webkit-scrollbar": { width: "0" } }}
+                    />
+                )}
+                PopperComponent={(props) => (
+                    <Popper
+                        {...props}
+                        sx={{ width: "100%", padding: "0", "&::-webkit-scrollbar": { width: "0" } }}
+                        // sx={{ width: "200px", padding: "0" }}
+                        placement="bottom-start"
+                    />
+                )}
+                renderInput={(params) => (
+                    <TextField
+                        {...params}
+                        variant="standard"
+                        fullWidth = {!props.inNavbar}
+                        style={{width: props.inNavbar ? "300px": null}}
+                        placeholder="Search a movie..."
+                        value={value}
+                        onChange={onChangeHandler}
+                        InputProps={{
+                            ...params.InputProps,
+                            type: "search",
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <AiOutlineSearch />
+                                </InputAdornment>
+                            ),
+                        }}
+                    />
+                )}
             />
-            {value.length ? (
-                <div className="search-box-result-header">
-                    {searchResults.map((result, index) => {
-                        if (typeof result === "object") {
-                            return <SearchResult key={index} movieName={result.Title} />;
-                        } else return <SearchResult key={index} movieName={result} />;
-                    })}
-                </div>
-            ) : null}
-        </div>
+        </>
     );
 };
 

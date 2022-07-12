@@ -60,7 +60,7 @@ const Navbar = (props) => {
                 Movie List Maker
             </Typography>
             <span className="nav-links">
-                <Search />
+                <Search inNavbar={true} />
                 {isAlreadyLogin ? (
                     <>
                         <Avatar
