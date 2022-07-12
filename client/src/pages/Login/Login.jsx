@@ -23,7 +23,7 @@ const Login = (props) => {
 
     const handleLogin = () => {
         axios
-            .post("/auth/login", {
+            .post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, {
                 email: userDetails.email,
                 password: userDetails.password,
             })

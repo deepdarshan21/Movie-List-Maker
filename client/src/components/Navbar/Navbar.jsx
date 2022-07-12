@@ -11,7 +11,7 @@ const Navbar = (props) => {
 
     useEffect(() => {
         const getUserName = async () => {
-            const res = await axios.post("/user/username", {
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/username`, {
                 jwtToken: localStorage.getItem("userInfoToken"),
             });
             setUserName(res.data.name);

@@ -24,7 +24,7 @@ const Signup = (props) => {
     const handleSignup = () => {
         if (userDetails.password === userDetails.confirmPassword) {
             axios
-                .post("/auth/signup", {
+                .post(`${process.env.REACT_APP_BACKEND_URL}/auth/signup`, {
                     email: userDetails.email,
                     name: userDetails.name,
                     password: userDetails.password,
